@@ -25,6 +25,8 @@ _int/**
 _out/
 _out/**
 .vs
+WinAPPOne/Debug
+WinAPPOne/winappone/Debug
 MergeLog.txt
 ExtractionLog.txt
 Appguard/bodetectorhlp64.lib
