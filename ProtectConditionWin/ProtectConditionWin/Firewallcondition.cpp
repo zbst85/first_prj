@@ -6,6 +6,7 @@
 #include <objbase.h>
 #include <oleauto.h>
 #include <stdio.h>
+#include "stdafx.h"
 
 #pragma comment(lib, "ole32.lib")
 #pragma comment(lib, "oleaut32.lib")
