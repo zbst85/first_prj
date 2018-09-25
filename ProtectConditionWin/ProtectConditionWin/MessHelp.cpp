@@ -2,12 +2,13 @@
 #include "stdafx.h"
 #include <iostream>
 
+std::string AVStatus;
+std::string FWStatus;
+std::string AMWStatus;
+
 
 class MessageHelper
 {
-
-private:
-
 
 public:
 
@@ -23,8 +24,14 @@ public:
 	static void messageViewer()
 	{
 		getHelp();
-		std::cout << AVStatus;
-		std::cout << FWStatus;
-		std::cout << AMWStatus;
+		std::cout <<"Antivirus info" << AVStatus << std::endl;
+		std::cout << "Firewall info" << FWStatus << std::endl;
+		std::cout << "Antimalware info" << AMWStatus << std::endl;
+		std::cout << "All services info" << AVStatus << FWStatus << AMWStatus << std::endl;
+		std::cout << "Antivirus and Firewall info" << AVStatus << FWStatus << std::endl;
+		std::cout << "Antivirus and Antimalware info" << AVStatus << AMWStatus << std::endl;
+		std::cout << "Firewall and Antimalware info" << FWStatus << AMWStatus << std::endl;
+		
+	
 	};
 }
