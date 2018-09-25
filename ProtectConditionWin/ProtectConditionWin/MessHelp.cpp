@@ -1,6 +1,7 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include "DefCondition.h"
 
 std::string AVStatus;
 std::string FWStatus;
@@ -24,7 +25,7 @@ public:
 	static void messageViewer()
 	{
 		getHelp();
-		std::cout <<"Antivirus info" << AVStatus << std::endl;
+		std::cout << " Antivirus info " << AVStatus << std::endl;
 		std::cout << "Firewall info" << FWStatus << std::endl;
 		std::cout << "Antimalware info" << AMWStatus << std::endl;
 		std::cout << "All services info" << AVStatus << FWStatus << AMWStatus << std::endl;

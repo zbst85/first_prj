@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
+#include "DefCondition.h"
 
 #define HRESULT
 
@@ -16,24 +17,28 @@ public:
 	
 };
 
-std::string AVStatus;
 
 class AntivirusStatus : public DefenceStatus
 {
+private:
+	std::string AVStatus;
 
 public:
-	std::string AVStatus;
-	std::string defStatus()
+	
+
+	virtual  void defStatus() override
 	{
 		//get windefender status
 		bool fEnable;
 
-		HRESULT bool WDEnable (fEnable);
+		HRESULT bool WDEnable( );
 		
-		if (fEnable = true)
-		{
+		fEnable = WDEnable();
+
+		if (fEnable == true)
+		
 			AVStatus = "Antivirus is on";
-		}
+		
 		else AVStatus = "Antivirus is off";
 
 		return AVStatus;
@@ -54,7 +59,7 @@ public:
 
 		HRESULT bool WDEnable(fEnable);
 
-		if (fEnable = true)
+		if (fEnable == true)
 		{
 			AVStatus = "Antivirus is on";
 		}
