@@ -126,7 +126,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 		COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE
 	);
 
-	
+
 	if (comInit != RPC_E_CHANGED_MODE)
 	{
 		hr = comInit;

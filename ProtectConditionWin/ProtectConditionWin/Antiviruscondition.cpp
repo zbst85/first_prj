@@ -1,9 +1,12 @@
+
+#include "stdafx.h"
 #include <string>
 #include <atlbase.h> // For ATL autorelease classes (CComBSTR, CComPtr)
 #include <wbemidl.h> // For WMI
 #pragma comment(lib, "wbemuuid.lib")// Link to WMI library. (Can do in library includes instead)
 #include<iostream>
 using namespace std;
+
 
 std::string GetAntivirusName()
 {
