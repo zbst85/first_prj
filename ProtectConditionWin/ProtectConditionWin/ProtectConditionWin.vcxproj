@@ -151,6 +151,8 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DefCondition.cpp" />
+    <ClCompile Include="MessHelp.cpp" />
     <ClCompile Include="StartApp.cpp" />
     <ClCompile Include="Firewallcondition.cpp" />
     <ClCompile Include="Antiviruscondition.cpp" />
