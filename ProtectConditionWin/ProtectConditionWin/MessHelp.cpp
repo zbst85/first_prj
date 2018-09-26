@@ -25,13 +25,8 @@ public:
 	static void messageViewer()
 	{
 		getHelp();
-		std::cout << " Antivirus info " << AVStatus << std::endl;
-		std::cout << "Firewall info" << FWStatus << std::endl;
-		std::cout << "Antimalware info" << AMWStatus << std::endl;
-		std::cout << "All services info" << AVStatus << FWStatus << AMWStatus << std::endl;
-		std::cout << "Antivirus and Firewall info" << AVStatus << FWStatus << std::endl;
-		std::cout << "Antivirus and Antimalware info" << AVStatus << AMWStatus << std::endl;
-		std::cout << "Firewall and Antimalware info" << FWStatus << AMWStatus << std::endl;
+		
+		std::cout << getdefStatus() << std::endl;
 		
 	
 	};

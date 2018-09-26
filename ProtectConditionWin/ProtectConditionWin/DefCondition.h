@@ -3,34 +3,45 @@
 
 class DefenceStatus
 {
+protected: 
+	std::string defendStatus;
+
 public:
 	virtual void defStatus() =0 ;
 
+	virtual std::string getdefStatus()
+	{
+		return defendStatus;
+	};
+
 	virtual ~DefenceStatus()
 	{		};
+	
+
 };
 
 
 class AntivirusStatus : public DefenceStatus
 {
-private:
-	std::string AVStatus;
-
+	
 public:
-	  void defStatus() override = 0
-	{	};
+	virtual void defStatus() override;
+	
 
 };
 
 class FirewallStatus : public DefenceStatus
 {
 
-private:
-	std::string FWStatus;
-	
 public:
-	virtual void defStatus() override
-	{		};
+	virtual void defStatus() override;
+};
+
+class AntiMalWareStatus : public DefenceStatus
+{
+
+public:
+	virtual void defStatus() override;
 };
 
 
