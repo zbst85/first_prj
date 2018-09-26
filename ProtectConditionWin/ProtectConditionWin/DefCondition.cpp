@@ -1,9 +1,13 @@
 
 #include "stdafx.h"
+#include "DefCondition.h"
 #include <iostream>
 #include <string>
 #include <windows.h>
-#include "DefCondition.h"
+#include <atlbase.h> // For ATL autorelease classes (CComBSTR, CComPtr)
+#include <wbemidl.h> // For WMI
+#include <stdio.h>
+#include <netfw.h>
 
 #define HRESULT
 
@@ -20,9 +24,7 @@ public:
 	{
 		//get windefender status
 		bool fEnable;
-
-		HRESULT bool WDEnable( );
-		
+				
 		fEnable = WDEnable();
 
 		if (fEnable == true)
@@ -36,9 +38,7 @@ public:
 		
 	};
 	std::string getdefStatus()
-	{
-		return defendStatus;
-	};
+	{};
 
 	
 };
@@ -49,9 +49,9 @@ class FirewallStatus : public DefenceStatus
 public:
 	virtual void defStatus() override
 	{
-		//get winfirewall status
+	
 		bool fwEnable;
-		// Check to see if the firewall is on.
+	
 		if (fwEnable != VARIANT_FALSE)
 		{
 			defendStatus = "Firewall is on";
@@ -62,10 +62,8 @@ public:
 		};
 
 	}
-	std::string getdefStatus()
-	{
-		return defendStatus;
-	};
+	std::string getdefStatus() {};
+
 };
 
 class AntiMalWareStatus : public DefenceStatus
@@ -73,8 +71,7 @@ class AntiMalWareStatus : public DefenceStatus
 
 public:
 	virtual void defStatus() override
-	{
-	
+	{	
 	};
 
 };

@@ -3,9 +3,6 @@
 #include <iostream>
 #include "DefCondition.h"
 
-std::string AVStatus;
-std::string FWStatus;
-std::string AMWStatus;
 
 
 class MessageHelper
@@ -25,9 +22,9 @@ public:
 	static void messageViewer()
 	{
 		getHelp();
-		
-		std::cout << getdefStatus() << std::endl;
-		
+		std::string outcomMessage = DefenceStatus::getdefStatus();
+
+		std::cout << outcomMessage << std::endl;
 	
 	};
 }
