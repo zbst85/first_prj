@@ -9,8 +9,8 @@
 
 using namespace std;
 #pragma comment(lib,"wbemuuid")
-
-void main() {
+/*void AVCondition () 
+{
 	CoInitializeEx(0, 0);
 	CoInitializeSecurity(0, -1, 0, 0, 0, 3, 0, 0, 0);
 	IWbemLocator *locator = 0;
@@ -49,4 +49,4 @@ void main() {
 	locator->Release();
 	CoUninitialize();
 	_getch();
-}
+}*/

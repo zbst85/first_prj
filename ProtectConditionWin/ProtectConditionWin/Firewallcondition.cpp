@@ -1,4 +1,4 @@
-#define _WIN32_WINNT 0x0500
+#include "stdafx.h"
 
 #include <windows.h>
 #include <crtdbg.h>
@@ -6,13 +6,17 @@
 #include <objbase.h>
 #include <oleauto.h>
 #include <stdio.h>
-#include "stdafx.h"
 
-#pragma comment(lib, "ole32.lib")
+#include "DefCondition.h"
+
+/* #pragma comment(lib, "ole32.lib")
 #pragma comment(lib, "oleaut32.lib")
 
+#define _WIN32_WINNT 0x0500
 
-HRESULT WindowsFirewallInitialize(OUT INetFwProfile** fwProfile)
+
+
+HRESULT FirewallStatus::WindowsFirewallInitialize(OUT INetFwProfile** fwProfile)
 {
 	HRESULT hr = S_OK;
 	INetFwMgr* fwMgr = NULL;
@@ -70,7 +74,7 @@ error:
 }
 
 
-void WindowsFirewallCleanup(IN INetFwProfile* fwProfile)
+void FirewallStatus::WindowsFirewallCleanup(IN INetFwProfile* fwProfile)
 {
 	// Release the firewall profile.
 	if (fwProfile != NULL)
@@ -79,7 +83,7 @@ void WindowsFirewallCleanup(IN INetFwProfile* fwProfile)
 	}
 }
 
-HRESULT WindowsFirewallIsOn(IN INetFwProfile* fwProfile, OUT BOOL* fwOn)
+HRESULT FirewallStatus::WindowsFirewallIsOn(IN INetFwProfile* fwProfile, OUT BOOL* fwOn)
 {
 	HRESULT hr = S_OK;
 	VARIANT_BOOL fwEnabled;
@@ -147,7 +151,7 @@ int __cdecl wmain(int argc, wchar_t* argv[])
 
 	// Is is turned on?
 	BOOL bIsOn = false;
-	hr = WindowsFirewallIsOn(fwProfile, &bIsOn);
+	hr = FirewallStatus::WindowsFirewallIsOn(fwProfile, &bIsOn);
 	if (FAILED(hr))
 	{
 		printf("WindowsFirewallIsOn failed: 0x%08lx\n", hr);
@@ -166,4 +170,4 @@ error:
 	}
 
 	return 0;
-}
+}*/

@@ -22,7 +22,7 @@ public:
 	static void messageViewer()
 	{
 		getHelp();
-		std::string outcomMessage = DefenceStatus::getdefStatus();
+		//std::string outcomMessage = DefenceStatus::getdefStatus();
 
 		std::cout << outcomMessage << std::endl;
 	

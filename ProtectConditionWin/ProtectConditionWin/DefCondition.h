@@ -1,4 +1,28 @@
 #pragma once
+#include "stdafx.h"
+
+#include <windows.h>
+#include <crtdbg.h>
+#include <netfw.h>
+#include <objbase.h>
+#include <oleauto.h>
+#include <stdio.h>
+#include <iostream>
+#include <string>
+#include <windows.h>
+#include <atlbase.h> // For ATL autorelease classes (CComBSTR, CComPtr)
+#include <wbemidl.h> // For WMI
+#include <netfw.h>
+#include <crtdbg.h>
+#include <conio.h>
+
+using namespace std;
+
+
+#pragma comment(lib,"wbemuuid")
+#pragma comment(lib, "ole32.lib")
+#pragma comment(lib, "oleaut32.lib")
+
 
 
 class DefenceStatus
@@ -26,7 +50,7 @@ class AntivirusStatus : public DefenceStatus
 	
 public:
 	virtual void defStatus() override;
-	
+	void AVCondition();
 
 };
 
@@ -35,6 +59,10 @@ class FirewallStatus : public DefenceStatus
 
 public:
 	virtual void defStatus() override;
+	HRESULT WindowsFirewallInitialize(OUT INetFwProfile** fwProfile);
+	void WindowsFirewallCleanup(IN INetFwProfile* fwProfile);
+	HRESULT WindowsFirewallIsOn(IN INetFwProfile * fwProfile, OUT BOOL * fwOn);
+	
 };
 
 class AntiMalWareStatus : public DefenceStatus

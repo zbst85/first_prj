@@ -4,6 +4,7 @@
 
 
 // Forward declarations
+/*
 void        Get_FirewallSettings_PerProfileType(NET_FW_PROFILE_TYPE2 ProfileTypePassed, INetFwPolicy2* pNetFwPolicy2);
 HRESULT     WFCOMInitialize(INetFwPolicy2** ppNetFwPolicy2);
 
@@ -66,4 +67,4 @@ HRESULT WFCOMInitialize(INetFwPolicy2** ppNetFwPolicy2)
 
 Cleanup:
 	return hr;
-}
+}*/

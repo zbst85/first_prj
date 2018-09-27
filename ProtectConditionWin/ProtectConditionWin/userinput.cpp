@@ -8,7 +8,7 @@
 #include <string>
 
 
-class UserInput()
+/*class UserInput
 {
 public
 
@@ -54,5 +54,5 @@ char tmp[50];
 	std::cout << (" %s \n ", tmp);
 
 
-}
+}*/
 
