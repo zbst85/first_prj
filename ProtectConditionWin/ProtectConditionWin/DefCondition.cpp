@@ -27,9 +27,7 @@ using namespace std;
 void AntivirusStatus::defStatus()
 {
 	//get windefender status
-	bool fEnable;
-
-	fEnable = WDEnable();
+	bool fEnable = AVCondition();
 
 	if (fEnable == true)
 	{
@@ -42,35 +40,24 @@ void AntivirusStatus::defStatus()
 
 }
 
-void AntivirusStatus::AVCondition()
+bool AntivirusStatus::AVCondition()
 {
+	bool result = false;
 	CoInitializeEx(0, 0);
 	CoInitializeSecurity(0, -1, 0, 0, 0, 3, 0, 0, 0);
 	IWbemLocator *locator = 0;
 	CoCreateInstance(CLSID_WbemLocator, 0, CLSCTX_INPROC_SERVER, IID_IWbemLocator, (void **)&locator);
 	IWbemServices * services = 0;
-	wchar_t *name = L"root\\SecurityCenter2";
-	if (SUCCEEDED(locator->ConnectServer(name, 0, 0, 0, 0, 0, 0, &services))) {
+	BSTR name(L"root\\SecurityCenter2");
+	if ((locator->ConnectServer(name, 0, 0, 0, 0, 0, 0, &services))>=0) {
 		printf("Connected!\n");
 		//Lets get system information
 		CoSetProxyBlanket(services, 10, 0, 0, 3, 3, 0, 0);
 		wchar_t *query = L"Select * From AntiVirusProduct";
 		IEnumWbemClassObject *e = 0;
-		if (SUCCEEDED(services->ExecQuery(L"WQL", query, WBEM_FLAG_FORWARD_ONLY, 0, &e))) {
+		if ((services->ExecQuery(L"WQL", query, WBEM_FLAG_FORWARD_ONLY, 0, &e))>=0) {
 			printf("Query executed successfuly!\n");
-			IWbemClassObject *object = 0;
-			ULONG u = 0;
-			//lets enumerate all data from this table
-
-			std::string antiVirus;
-
-			while (e) {
-				e->Next(WBEM_INFINITE, 1, &object, &u);
-				if (!u) break;//no more data,end enumeration
-				CComVariant cvtVersion;
-				object->Get(L"displayName", 0, &cvtVersion, 0, 0);
-				wcout << cvtVersion.bstrVal << endl;
-			}
+			result = true;
 		}
 		else
 			printf("Error executing query!\n");
@@ -81,7 +68,9 @@ void AntivirusStatus::AVCondition()
 	services->Release();
 	locator->Release();
 	CoUninitialize();
-	_getch();
+
+	return result;
+
 }
 
 void FirewallStatus ::defStatus() 

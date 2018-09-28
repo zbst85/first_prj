@@ -47,21 +47,25 @@ public:
 
 class AntivirusStatus : public DefenceStatus
 {
+protected:
+	bool AVCondition();
 	
 public:
-	virtual void defStatus() override;
-	void AVCondition();
+		virtual void defStatus() override;
+	
 
 };
 
 class FirewallStatus : public DefenceStatus
 {
-
-public:
-	virtual void defStatus() override;
+protected:
 	HRESULT WindowsFirewallInitialize(OUT INetFwProfile** fwProfile);
 	void WindowsFirewallCleanup(IN INetFwProfile* fwProfile);
 	HRESULT WindowsFirewallIsOn(IN INetFwProfile * fwProfile, OUT BOOL * fwOn);
+public:
+	virtual void defStatus() override;
+	
+	
 	
 };
 
